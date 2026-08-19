@@ -9,7 +9,7 @@
 	<div class="max-w-7xl mx-auto px-4">
 		<div class="flex items-center justify-between h-20 gap-4">
 			<!-- Logo -->
-			<a href="/" class="flex items-center gap-3 flex-shrink-0">
+			<a href="/" class="flex items-center gap-3 shrink-0">
 				<img src="/MedSimNorge-logo.avif" alt="MedSimNorge Logo" class="h-12 w-12" />
 				<span class="text-xl font-bold text-gray-900 dark:text-white">MedSimNorge</span>
 			</a>

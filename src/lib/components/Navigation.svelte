@@ -52,7 +52,7 @@
         <NavigationMenu.Item>
             <NavigationMenu.Trigger>Nettverkskonferanser</NavigationMenu.Trigger>
             <NavigationMenu.Content>
-                <ul class="grid w-[300px] gap-4 p-2">
+                <ul class="grid w-75 gap-4 p-2">
                     <li>
                         <NavigationMenu.Link href="/nettverkskonferanser">
                             <div class="font-medium">Alle nettverkskonferanser</div>
@@ -82,7 +82,7 @@
         <NavigationMenu.Item>
             <NavigationMenu.Trigger>Om oss</NavigationMenu.Trigger>
             <NavigationMenu.Content>
-                <ul class="grid w-[300px] gap-4 p-2">
+                <ul class="grid w-75 gap-4 p-2">
                     <li>
                         <NavigationMenu.Link href="/om-oss">
                             <div class="font-medium">Om MedSimNorge</div>
