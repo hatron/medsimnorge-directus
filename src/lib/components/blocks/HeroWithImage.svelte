@@ -6,13 +6,23 @@
     title: string;
     subtitle?: string;
     image?: string | { id: string };
-    primary_link?: string;
+    primary_link?: string | { permalink?: string };
     primary_link_text?: string;
   }
 
   let { content, class: className = "" }: { content: HeroContent, class?: string } = $props();
   
   const imageUrl = getAssetUrl(content.image);
+  const primaryLinkHref = $derived.by(() => {
+    const primaryLink = content.primary_link;
+    if (typeof primaryLink === "string") {
+      return /^(https?:\/\/|\/|mailto:|tel:)/.test(primaryLink) ? primaryLink : undefined;
+    }
+
+    const permalink = primaryLink?.permalink;
+    if (!permalink) return undefined;
+    return permalink === "home" ? "/" : `/${permalink}`;
+  });
 </script>
 
 <section class={cn("min-h-[calc(100vh-8rem)] flex items-center", className)}>
@@ -28,9 +38,9 @@
           </div>
         {/if}
         <div class="flex flex-wrap gap-4">
-          {#if content.primary_link && content.primary_link_text}
+          {#if primaryLinkHref && content.primary_link_text}
             <a 
-              href={content.primary_link}
+              href={primaryLinkHref}
               class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-radial-[at_50%_50%] from-blue-200 to-indigo-300 hover:from-blue-100 hover:to-indigo-200 rounded-lg transition-colors"
             >
               {content.primary_link_text}

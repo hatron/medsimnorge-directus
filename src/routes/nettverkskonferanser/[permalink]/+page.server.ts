@@ -6,7 +6,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	const { permalink } = params;
 
 	try {
-		const url = `${DIRECTUS_URL}/items/nettverkskonferanser?filter[permalink][_eq]=${permalink}&filter[status][_eq]=published&fields=*,blocks.*,blocks.item:block_herowithimage.*,blocks.item:block_richtext.*,blocks.item:block_teammember.*`;
+		const url = `${DIRECTUS_URL}/items/nettverkskonferanser?filter[permalink][_eq]=${permalink}&filter[status][_eq]=published&fields=*,blocks.*,blocks.item:block_herowithimage.*,blocks.item:block_herowithimage.primary_link.permalink,blocks.item:block_richtext.*,blocks.item:block_teammember.*`;
 
 		const response = await fetch(url, {
 			headers: {
