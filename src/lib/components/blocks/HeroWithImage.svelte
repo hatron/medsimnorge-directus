@@ -27,10 +27,10 @@
         {/if}
         <div class="flex flex-wrap gap-4">
           <a 
-            href="/nettverkskonferanser/nettverkskonferansen-2026" 
+            href="/nettverkskonferanser/nettverkskonferansen-2027" 
             class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-radial-[at_50%_50%] from-blue-200 to-indigo-300 hover:from-blue-100 hover:to-indigo-200 rounded-lg transition-colors"
           >
-            Nettverkskonferansen 2026
+            Nettverkskonferansen 2027
             <ArrowRight class="w-5 h-5" />
           </a>
           <a 
