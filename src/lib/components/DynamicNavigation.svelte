@@ -33,7 +33,7 @@
 	function closeDropdown() {
 		openDropdown = null;
 	}
-	
+
 	function openDropdownMenu(itemId: number) {
 		openDropdown = itemId;
 	}
@@ -59,20 +59,21 @@
 		{#each topLevelItems as item}
 			{@const children = getChildren(item.id)}
 			
-			<li class="relative" onmouseleave={closeDropdown}>
-				{#if children.length > 0}
-					<!-- Item with dropdown -->
-					<button
-						class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-						onclick={() => toggleDropdown(item.id)}
-						onmouseenter={() => openDropdownMenu(item.id)}
-						onfocus={() => openDropdownMenu(item.id)}
-						aria-expanded={openDropdown === item.id}
-						aria-haspopup="true"
-					>
-						{item.label}
-						<ChevronDown class="w-4 h-4" />
-					</button>
+			<li class="relative">
+				<div role="presentation" onmouseleave={closeDropdown}>
+					{#if children.length > 0}
+						<!-- Item with dropdown -->
+						<button
+							class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+							onclick={() => toggleDropdown(item.id)}
+							onmouseenter={() => openDropdownMenu(item.id)}
+							onfocus={() => openDropdownMenu(item.id)}
+							aria-expanded={openDropdown === item.id}
+							aria-haspopup="true"
+						>
+							{item.label}
+							<ChevronDown class="w-4 h-4" />
+						</button>
 					
 					{#if openDropdown === item.id}
 						<div 
@@ -116,6 +117,7 @@
 						{item.label}
 					</a>
 				{/if}
+				</div>
 			</li>
 		{/each}
 	</ul>
@@ -150,7 +152,7 @@
 									<a 
 										href={getHref(child)}
 										class="block py-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-										onclick={() => mobileMenuOpen = false}
+									onclick={() => mobileMenuOpen = false}
 									>
 										{child.label}
 									</a>
