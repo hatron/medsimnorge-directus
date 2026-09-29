@@ -6,6 +6,8 @@
     title: string;
     subtitle?: string;
     image?: string | { id: string };
+    primary_link?: string;
+    primary_link_text?: string;
   }
 
   let { content, class: className = "" }: { content: HeroContent, class?: string } = $props();
@@ -26,13 +28,15 @@
           </div>
         {/if}
         <div class="flex flex-wrap gap-4">
-          <a 
-            href="/nettverkskonferanser/nettverkskonferansen-2027" 
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-radial-[at_50%_50%] from-blue-200 to-indigo-300 hover:from-blue-100 hover:to-indigo-200 rounded-lg transition-colors"
-          >
-            Nettverkskonferansen 2027
-            <ArrowRight class="w-5 h-5" />
-          </a>
+          {#if content.primary_link && content.primary_link_text}
+            <a 
+              href={content.primary_link}
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-radial-[at_50%_50%] from-blue-200 to-indigo-300 hover:from-blue-100 hover:to-indigo-200 rounded-lg transition-colors"
+            >
+              {content.primary_link_text}
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          {/if}
           <a 
             href="/om-oss" 
             class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
